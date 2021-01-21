@@ -1,16 +1,19 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<p style="text-align: right"><button type="button" onclick="history.back()">戻る</button></p>
+<div class="page-header">
+  <p style="text-align: right"><button type="button" onclick="history.back()">戻る</button></p>
+<h1>{{ post.title }}</h1>
+</div>
 <div class="post">
  
 	    {% if user.is_authenticated %}
               <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
             {% endif %}
-        <h2>{{ post.title }}</h2>
+	<br>  
 	<a href="{{ post.link }}">味の素レシピ</a>
 	<h4>難易度：{{post.category}}　　カロリー：{{post.calorie}}kcal<h4>
-        <h4>調理時間 {{ post.time }}分　調理工程数 {{ post.process }}　動作数 {{ post.motion}}　食材数 {{post.ingredients }}</h4> 
+        <h4>調理時間：{{ post.time }}分　調理工程数：{{ post.process }}　動作数：{{ post.motion}}　食材数：{{post.ingredients }}</h4> 
 	<h4>[材料]</h4>
 	<p>{{ post.material|linebreaksbr }}</p>
 	<h4>[作り方]</h4>

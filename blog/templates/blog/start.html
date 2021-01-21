@@ -9,11 +9,17 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   </head>
   <body>
-    <div>
-    <h1>レシピ検索</h1>
+    <div class="start">
+      <div class="page-header">
+	{% if user.is_authenticated %}
+           <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %} 
+           
+      <h1>レシピ検索</h1>
+      </div>
     <form method="GET" action="{% url 'post_list' %}">
             <input type="text" name="keyword" placeholder="キーワード">
-            <button type="submit">検索</button>
+            <button class="kennsaku" type="submit">検索</button>
     </form>
         <h4>[難易度]</h4>
         <!-- context.pyのオブジェクトを取得しています。（category_list）-->

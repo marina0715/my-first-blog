@@ -14,9 +14,10 @@
        <h1>カロリー高い順</h1>
        <p style="text-align: right"><input type="button" onclick="location.href='{% url 'post_calorie_low' %}'" value="カロリー低い順"></p>
     </div>
+    <div class="post">
     {% for post in posts %}
     <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
     {% endfor %} 
-
+    </div>
 </body>        
 {% endblock %}

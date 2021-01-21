@@ -1,5 +1,10 @@
+<<<<<<< HEAD:blog/static/css/blog.css~
 h1 a, h2 a {
     color: #FFAA77
+=======
+h1 a {
+    color: #FFAA77;
+>>>>>>> f21ed7819bfcc1390becbb72a83e4caed2a006a3:blog/static/css/blog.css
     font-family: 'Lobster';
 }
 
@@ -8,7 +13,11 @@ body {
 }
 
 .page-header {
+<<<<<<< HEAD:blog/static/css/blog.css~
     background-color: #FFAA77;
+=======
+    background-color: #ffb88c;
+>>>>>>> f21ed7819bfcc1390becbb72a83e4caed2a006a3:blog/static/css/blog.css
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -24,7 +33,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Hiragino Maru Gothic Pro',
 }
 
 .date {

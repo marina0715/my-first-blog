@@ -1,19 +1,39 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<p style="text-align: right"><button type="button" onclick="history.back()">戻る</button></p>
 <div class="post">
  
 	    {% if user.is_authenticated %}
               <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
             {% endif %}
         <h2>{{ post.title }}</h2>
-	<a href="{( blog.link )}">味の素サイト</a>
+	<a href="{{ post.link }}">味の素レシピ</a>
 	<h4>難易度：{{post.category}}　　カロリー：{{post.calorie}}kcal<h4>
         <h4>調理時間 {{ post.time }}分　調理工程数 {{ post.process }}　動作数 {{ post.motion}}　食材数 {{post.ingredients }}</h4> 
 	<h4>[材料]</h4>
 	<p>{{ post.material|linebreaksbr }}</p>
 	<h4>[作り方]</h4>
 	<p>{{ post.text|linebreaksbr }}</p>
-	
+	<h4>[栄養素]</h4>
+	<h4>炭水化物：{{ post.carbohydrate }}g　タンパク質：{{post.protein}}g　脂質：{{post.lipid}}g</h4>
+	{% if post.image1 %}
+        <div class ="image1">
+          <img src="/{{ post.image1.url }}" style="width:300px;height:auto">
+	{% endif %}
+	{% if post.image2 %}
+        <div class ="image1">
+	  <img src="/{{ post.image2.url }}" style="width:300px;height:auto">
+        </div>
+	{% endif %}
+	{% if post.image3 %}
+        <div class ="image3">
+	  <img src="/{{ post.image3.url }}" style="width:300px;height:auto">
+        </div>
+        {% endif %}
+	{% if post.image4 %}
+        <div class ="image4">
+          <img src="/{{ post.image4.url }}" style="width:300px;height:auto">
+	{% endif %}
     </div>
 {% endblock %}

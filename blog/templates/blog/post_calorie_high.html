@@ -1,0 +1,22 @@
+{% load static %}
+{% block content %}
+<html>
+  <head>
+    <title>レシピ検索サイト</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+  <body>
+    <div class="page-header">
+       <p style="text-align: right"></h1><a href="/">レシピ検索に戻る</a></p>
+       <h1>カロリー高い順</h1>
+       <p style="text-align: right"><input type="button" onclick="location.href='{% url 'post_calorie_low' %}'" value="カロリー低い順"></p>
+    </div>
+    {% for post in posts %}
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    {% endfor %} 
+
+</body>        
+{% endblock %}

@@ -1,0 +1,21 @@
+<!IF ’QUERY::Low ne "" && QUERY::High ne ""’>  <!-- 下限も上限も０でない場合 -->
+    <!SETVAR cond "WHERE 価格 >= $QUERY::Low AND 価格 <= $QUERY::High">      (2)
+<!ELSEIF ’QUERY::Low ne ""’>
+    <!SETVAR cond "WHERE 価格 >= $QUERY::Low">          (2)
+<!ELSEIF ’QUERY::High ne ""’>    
+    <!SETVAR cond "WHERE 価格 <= $QUERY::High">         (2)
+<!ELSE>
+    <!SETVAR cond ’""’>                                      (2)
+<!/IF>
+<!DO "SELECT 製品名,価格 FROM WL_SCHEMA.製品表 $cond" RESULT=rslt>      (3)
+<!IF ’listlen(rslt)==0’>
+    該当するデータはありません。<BR>
+<!/IF>
+<TABLE BORDER=1>
+    <!FOREACH rslt t>
+        <TR>
+            <TD><!HREPLACE ’t{製品名}’></TD>
+            <TD><!HREPLACE ’format(t{価格},"fix:delimit=3")’> 円</TD>
+        </TR>
+    <!/FOREACH>
+</TABLE>

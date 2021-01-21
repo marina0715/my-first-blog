@@ -2,10 +2,14 @@
 
 {% block content %}
 
+  <div class="post">
+     <p style="text-align: right"></h1><a href="/">レシピ検索に戻る</a></p>
+  <h1 style='clear: both;'></h1>
+
+    {% if category %}
+        <h3>カテゴリー：{{ category }}</h3>
+    {% endif %}
   {% for post in posts %}
-<div class="post">
-        
-         
            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
           
       </div>

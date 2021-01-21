@@ -114,5 +114,3 @@ def post_lipid_low(request):
 def post_lipid_high(request):
     posts = Post.objects.extra(select={'lipid': 'CAST(lipid AS INTEGER)'}).order_by('-lipid')
     return render(request, 'blog/post_lipid_high.html',{'posts': posts})
-
-

@@ -10,7 +10,9 @@
   </head>
   <body>
     <div>
-    <h1>レシピ検索</h1>
+     <div class="page-header">
+     <h1>レシピ検索</h1>
+     </div>
     <form method="GET" action="{% url 'post_list' %}">
             <input type="text" name="keyword" placeholder="キーワード">
             <button type="submit">検索</button>

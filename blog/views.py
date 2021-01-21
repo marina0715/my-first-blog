@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 def start(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    
     keyword = request.GET.get('keyword')
 
     if keyword:
@@ -15,7 +15,7 @@ def start(request):
                  Q(title__icontains=keyword) | Q(material__icontains=keyword)
                )
         messages.success(request, '「{}」の検索結果'.format(keyword))
-    return render(request, 'blog/start.html',{'posts': posts})
+    return render(request, 'blog/start.html')
     
 
 def post_list(request):

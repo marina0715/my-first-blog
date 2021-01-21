@@ -23,3 +23,4 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
+    

@@ -6,6 +6,7 @@ from .forms import PostForm
 from django.contrib import messages
 from django.db.models import Q
 
+
 def start(request):
     
     keyword = request.GET.get('keyword')

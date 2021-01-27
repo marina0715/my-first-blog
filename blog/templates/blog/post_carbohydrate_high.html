@@ -11,8 +11,8 @@
   <body>
     <div class="page-header">
        <p style="text-align: right"></h1><a href="/">レシピ検索に戻る</a></p>
-       <h1>炭水化物高い順</h1>
-       <p style="text-align: right"><input type="button" onclick="location.href='{% url 'post_carbohydrate_low' %}'" value="炭水化物低い順"></p>
+       <h1>炭水化物多い順</h1>
+       <p style="text-align: right"><input type="button" onclick="location.href='{% url 'post_carbohydrate_low' %}'" value="炭水化物少ない順"></p>
     </div>
     <div class="post">
     {% for post in posts %}
